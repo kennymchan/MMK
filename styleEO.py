@@ -13,15 +13,19 @@ blog_content = urllib2.urlopen('http://api.tumblr.com/v2/blog/styleseatblog.tumb
 data_loaded = json.load(blog_content)
 data_formatted = json.dumps(data_loaded, indent=4, separators=(',', ': '))
 
+list_content_url = []
+total_posts = data_loaded["response"]["total_posts"]
+
+# Get the post url
+# addition_info = data_loaded["response"]["posts"][i]["post_url"]
+
 for i in range (0, 19):
 	print "\n"
 	body = data_loaded["response"]["posts"][i]["body"]
-	addition_info = data_loaded["response"]["posts"][i]
-	print json.dumps(addition_info, indent=4, separators=(',', ': '))
 	print json.dumps(body, indent=4, separators=(',', ': '))
 	print "\n"
 	print "\n"
-
+	break
 
 
 
